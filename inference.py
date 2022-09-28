@@ -248,12 +248,12 @@ def output_visuals(
         mix_wav = utils.istft_reconstruction(
             mag_mix[j, 0], phase_mix[j, 0], hop_len=hop_len, win_len=win_len
         )
-        mix_amp = utils.magnitude2heatmap(mag_mix_[j, 0])
+        mix_amp = utils.magnitude2heatmap(mag_mix[j, 0])
         weight = utils.magnitude2heatmap(weight_[j, 0], log=False, scale=100.0)
         filename_mixwav = f"{prefix}/mix.wav"
         filename_mixmag = f"{prefix}/mix.png"
         filename_weight = f"{prefix}/weight.png"
-        imageio.imwrite(sample_dir / filename_mixmag, mix_amp[::-1, :, :])
+        imageio.imwrite(sample_dir / filename_mixmag, mix_amp[::-1,:])
         imageio.imwrite(sample_dir / filename_weight, weight[::-1, :])
         scipy.io.wavfile.write(
             sample_dir / filename_mixwav, audio_rate, mix_wav

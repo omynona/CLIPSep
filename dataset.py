@@ -299,7 +299,6 @@ class MixDatasetV2(torch.utils.data.Dataset):
             snr = 10*np.log10(e_s/(e_n+eps))
             w = np.power(10, snr/10/target_snr)
             w = np.clip(w, 0.25, 4)
-            print('SNR {}\tWeight {}'.format(snr, w))
             audios[i+1] = audios[i+1]*w
 
         return audios
