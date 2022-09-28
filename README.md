@@ -7,11 +7,11 @@ All source code, including training code and data preprocessing, will be made pu
 conda env create -f environment.yml
 ```
 
-### Run visualization
+### Run inference
 ```
-OMP_NUM_THREADS=1 python inference.py -o checkpoints/clipsep_nit/ -t data/MUSIC/test.csv -t2 data/vggsound/test.csv
+OMP_NUM_THREADS=1 python inference.py -o checkpoints/clipsep_nit/ -t data/MUSIC/test.csv -t2 data/vggsound/test.csv --vis_dir outputs
 ```
 ### Run evaluation
 ```
-OMP_NUM_THREADS=1 python evaluate.py -o checkpoints/clipsep_nit/ -t data/MUSIC/test.csv -t2 data/vggsound/test.csv --vis_dir visualization
+OMP_NUM_THREADS=1 python evaluate.py -o checkpoints/clipsep_nit/ -t data/MUSIC/test.csv -t2 data/vggsound/test.csv 
 ```
